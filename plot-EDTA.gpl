@@ -1,0 +1,16 @@
+set term qt
+set xlabel 'pH'
+ 
+set ylabel '{/Symbol a}' enhanced
+set xrange [1:14]
+set yrange [0:1]
+
+set key right bottom
+plot 'result-edta.txt' u 1:3 w l smooth csplines t"H_4Y", 'result-edta.txt' u 1:4 w l smooth csplines t "H_3Y^{3-}", 'result-edta.txt' u 1:5 w l smooth csplines t"H_2Y^{2-}", 'result-edta.txt' u 1:6 w l smooth csplines t"Y^{4-}"
+
+
+replot
+
+set term pngcairo size 1920,1080
+set output 'EDTA.png'
+replot
